@@ -1,0 +1,36 @@
+{
+  "name": "kesz",
+  "version": "0.1.0",
+  "description": "Unified cache access library",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "coffee --bare --no-header --compile --output . src/",
+    "lint": "coffeelint src/",
+    "test": "mocha --require coffeescript/register --require coffee-coverage/register-istanbul --recursive --exit test/*.coffee",
+    "coverage": "npm test && istanbul report",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomi77/node-kesz.git"
+  },
+  "keywords": [
+    "cache"
+  ],
+  "author": "Tomasz Jakub Rup",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomi77/node-kesz/issues"
+  },
+  "homepage": "https://github.com/tomi77/node-kesz",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coffee-coverage": "^2.0.1",
+    "coffeelint": "^2.0.6",
+    "coffeescript": "^2.0.1",
+    "coveralls": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "memjs": "^1.0.0-rc.1",
+    "mocha": "^4.0.1"
+  }
+}
