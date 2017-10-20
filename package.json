@@ -15,7 +15,10 @@
     "url": "git+https://github.com/tomi77/node-kesz.git"
   },
   "keywords": [
-    "cache"
+    "cache",
+    "memcache",
+    "redis",
+    "dummy"
   ],
   "author": "Tomasz Jakub Rup",
   "license": "MIT",
