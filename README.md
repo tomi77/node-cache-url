@@ -31,6 +31,7 @@ Where `service` is one of
 * `memcache` - Memcached server
 * `memcached` - Memcached server
 * `redis` - Redis server
+* `dummy` - Dummy - nothing writes, nothing reads
 
 ## Supported libs
 
@@ -46,7 +47,11 @@ Install `kesz` and Your prefer cache library.
 ~~~js
 const cache = require('kesz')('memcache://localhost:11211')
 cache.set('key', 'qaz123')
-var key = cache.get('key')
+.then(function() {
+  cache.get('key')
+}).then(function(key) {
+  console.log(key)
+})
 ~~~
 
 ## API
