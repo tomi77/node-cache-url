@@ -5,14 +5,12 @@ module.exports = (cache_url=process.env.CACHE_URL) ->
 
   switch cache_url.protocol
     when 'memcache:', 'memcached:'
-      resolver = require './resolvers/memcache'
       cache_url.port or= 11211
-      console.log resolver cache_url
-      console.log 'memcache', cache_url
+      require './resolvers/memcache'
     when 'redis:'
-      resolver = require './resolvers/redis'
-      console.log resolver cache_url
-      console.log 'redis', cache_url
+      require './resolvers/redis'
+    when 'dummy:'
+      require './resolvers/dummy'
     else
-      console.log 'unsupported', cache_url
+      throw new Error "Unsupported engine #{ cache_url.protocol }"
   return
