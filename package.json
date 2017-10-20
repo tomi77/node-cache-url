@@ -38,5 +38,9 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1"
+  },
+  "optionalDependencies": {
+    "memcached-promisify": "^2.0.0",
+    "memjs": "^1.0.0-rc.1"
   }
 }
