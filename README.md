@@ -5,6 +5,15 @@
 
 Unified cache access library
 
+## Table of contents
+
+* [Installation](#installation)
+* [Envirnoment](#envirnoment)
+* [Cache URL format](#cache-url-format)
+* [Supported libs](#supported-libs)
+* [Usage](#usage)
+* [API](#api)
+
 ## Installation
 
 ### NPM
@@ -23,7 +32,7 @@ yarn add kesz
 
 ### `CACHE_URL`
 
-URL in format ``memcached://localhost:11211``
+Cache URL
 
 ## Cache URL format
 
@@ -34,6 +43,7 @@ Where `service` is one of
 * `memcache` - Memcached server
 * `memcached` - Memcached server
 * `redis` - Redis server
+* `hiredis` - Redis server
 * `dummy` - Dummy - nothing writes, nothing reads
 
 ## Supported libs
@@ -59,14 +69,46 @@ cache.set('key', 'qaz123')
 
 ## API
 
-### `client`
+#### `client`
 
 Direct access to client library
 
-### `set(key <string>, value<number|string|Object> [, options<Object>]) -> Promise`
+#### `set(key, value [, options]) -> Promise`
+
+___Parameters___
+
+* `key` <`string`>
+
+  cache key
+
+* `value` <`number` | `string` | `object`>
+
+  data to set in cache
+
+* `options` <`object`>
+
+  options
+
+  * `expires` <`number`>
+
+    expiration of data in seconds
+
+___Return value___
+
+`Promise`
 
 Set an item in the cache
 
-### `get(key <string>) -> Promise<Buffer>`
+#### `get(key) -> Promise`
+
+___Parameters___
+
+* `key` <`string`>
+
+  cache key
+
+___Return value___
+
+`Promise<Buffer>`
 
 Get a cache item
