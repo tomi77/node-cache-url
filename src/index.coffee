@@ -6,7 +6,7 @@ module.exports = (cache_url=process.env.CACHE_URL) ->
   switch cache_url.protocol
     when 'memcache:', 'memcached:'
       cache_url.port or= 11211
-      require './resolvers/memcache'
+      require './resolvers/memcached'
     when 'redis:', 'hiredis:'
       require './resolvers/redis'
     when 'dummy:'
