@@ -3,7 +3,7 @@ url = require 'url'
 module.exports = (cache_url=process.env.CACHE_URL) ->
   cache_url = url.parse cache_url
 
-  switch cache_url.protocol
+  resolver = switch cache_url.protocol
     when 'memcache:', 'memcached:'
       cache_url.port or= 11211
       require './resolvers/memcached'
@@ -13,4 +13,5 @@ module.exports = (cache_url=process.env.CACHE_URL) ->
       require './resolvers/dummy'
     else
       throw new Error "Unsupported engine #{ cache_url.protocol }"
-  return
+
+  resolver cache_url

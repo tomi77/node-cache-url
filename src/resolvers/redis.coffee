@@ -9,7 +9,7 @@ catch error
 
 class CacheClient
   constructor: (url) ->
-    @client = cache.createClient url.port, url.host
+    @client = cache.createClient url.port, url.hostname
     return
 
   ###
@@ -17,7 +17,7 @@ class CacheClient
   @param {string} key - cache key
   @returns {Promise<Buffer>}
   ###
-  get: (key) -> @client.get key
+  get: (key) -> @client.getAsync key
 
   ###
   Set an item in the cache
@@ -27,7 +27,11 @@ class CacheClient
          {number} expires - expiration of data in seconds
   @returns {Promise}
   ###
-  set: (key, value, options={}) -> @client.set key, value, options.expires
+  set: (key, value, options={}) ->
+    if options.expire?
+      @client.setAsync key, value, options.expires
+    else
+      @client.setAsync key, value
 
 if cache?
   module.exports = (url) -> new CacheClient url

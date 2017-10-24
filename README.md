@@ -3,7 +3,7 @@
 [![dependencies Status](https://david-dm.org/tomi77/node-kesz/status.svg)](https://david-dm.org/tomi77/node-kesz)
 [![devDependencies Status](https://david-dm.org/tomi77/node-kesz/dev-status.svg)](https://david-dm.org/tomi77/node-kesz?type=dev)
 
-Unified cache access library
+Unified cache access library for Node
 
 ## Table of contents
 
