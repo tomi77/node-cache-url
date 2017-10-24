@@ -33,7 +33,6 @@
     "coffeescript": "^2.0.1",
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
-    "memjs": "^1.0.0-rc.1",
     "mocha": "^4.0.1"
   },
   "dependencies": {
@@ -41,6 +40,7 @@
   },
   "optionalDependencies": {
     "memcached-promisify": "^2.0.0",
-    "memjs": "^1.0.0-rc.1"
+    "memjs": "^1.0.0-rc.1",
+    "redis": "^2.8.0"
   }
 }
