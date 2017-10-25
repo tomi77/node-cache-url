@@ -50,10 +50,13 @@ Where `service` is one of
 
 ## Supported libs
 
-### memcache
+### memcached
 
 * [memjs](https://www.npmjs.com/package/memjs)
 * [memcached](https://www.npmjs.com/package/memcached)
+
+### redis
+
 * [redis](https://www.npmjs.com/package/redis)
 
 ## Usage
