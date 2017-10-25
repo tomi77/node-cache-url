@@ -32,6 +32,8 @@ matrix:
 
 before_script:
   - rm package-lock.json
+  - npm uninstall memcached-promisify memjs redis --nosave
+  - rm package-lock.json
   - if [ $CACHE_LIB != "" ]; then npm i $CACHE_LIB; fi
 
 script:
