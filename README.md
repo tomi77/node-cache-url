@@ -1,5 +1,7 @@
 # kesz
 
+[![Build Status](https://travis-ci.org/tomi77/node-kesz.svg?branch=master)](https://travis-ci.org/tomi77/node-kesz)
+[![Coverage Status](https://coveralls.io/repos/github/tomi77/node-kesz/badge.svg?branch=master)](https://coveralls.io/github/tomi77/node-kesz?branch=master)
 [![dependencies Status](https://david-dm.org/tomi77/node-kesz/status.svg)](https://david-dm.org/tomi77/node-kesz)
 [![devDependencies Status](https://david-dm.org/tomi77/node-kesz/dev-status.svg)](https://david-dm.org/tomi77/node-kesz?type=dev)
 

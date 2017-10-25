@@ -1,0 +1,35 @@
+language: node_js
+
+node_js: node
+
+env:
+  global:
+    - CACHE_URL=""
+    - CACHE_LIB=""
+
+matrix:
+  include:
+    - env:
+      - CACHE_URL="dummy://"
+    - env:
+        - CACHE_URL="memcached://localhost:11211"
+        - CACHE_LIB="memcached-promisify@^2.0.0"
+      services:
+        - memcached
+    - env:
+        - CACHE_URL="memcached://localhost:11211"
+        - CACHE_LIB="memjs@^1.0.0-rc.1"
+      services:
+        - memcached
+    - env:
+        - CACHE_URL="redis://"
+        - CACHE_LIB="redis@^2.8.0"
+      services:
+        - redis-server
+
+before_script:
+  - rm package-lock.json
+  - if [ $CACHE_LIB != "" ]; then npm i $CACHE_LIB; fi
+
+script:
+  - npm run coveralls
