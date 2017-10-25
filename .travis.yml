@@ -4,26 +4,29 @@ node_js: node
 
 env:
   global:
-    - CACHE_URL=""
     - CACHE_LIB=""
 
 matrix:
   include:
     - env:
-      - CACHE_URL="dummy://"
+        - CACHE_URL="dummy://"
+        - TEST_FILE="test/test_dummy.coffee"
     - env:
         - CACHE_URL="memcached://localhost:11211"
         - CACHE_LIB="memcached-promisify@^2.0.0"
+        - TEST_FILE="test/test_memcached.coffee"
       services:
         - memcached
     - env:
         - CACHE_URL="memcached://localhost:11211"
         - CACHE_LIB="memjs@^1.0.0-rc.1"
+        - TEST_FILE="test/test_memcached.coffee"
       services:
         - memcached
     - env:
         - CACHE_URL="redis://"
         - CACHE_LIB="redis@^2.8.0"
+        - TEST_FILE="test/test_redis.coffee"
       services:
         - redis-server
 
@@ -32,4 +35,6 @@ before_script:
   - if [ $CACHE_LIB != "" ]; then npm i $CACHE_LIB; fi
 
 script:
-  - npm run coveralls
+  - ./node_modules/.bin/mocha --require coffeescript/register --require coffee-coverage/register-istanbul --recursive --exit $TEST_FILE
+  - ./node_modules/.bin/istanbul report
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
