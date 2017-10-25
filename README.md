@@ -53,7 +53,7 @@ Where `service` is one of
 ### memcache
 
 * [memjs](https://www.npmjs.com/package/memjs)
-* [memcached-promisify](https://www.npmjs.com/package/memcached-promisify)
+* [memcached](https://www.npmjs.com/package/memcached)
 * [redis](https://www.npmjs.com/package/redis)
 
 ## Usage

@@ -1,5 +1,8 @@
+Promise = require 'bluebird'
+
 try
-  cache = require 'memcached-promisify'
+  cache = require 'memcached'
+  Promise.promisifyAll cache::
 catch error
   cache = null
 
@@ -13,7 +16,7 @@ class CacheClient
   @param {string} key - cache key
   @returns {Promise<Buffer>}???
   ###
-  get: (key) -> @client.get key
+  get: (key) -> @client.getAsync key
 
   ###
   Set an item in the cache
@@ -23,7 +26,11 @@ class CacheClient
          {number} expires - expiration of data in seconds
   @returns {Promise}
   ###
-  set: (key, value, options={}) -> @client.set key, value, options.expires
+  set: (key, value, options={}) ->
+    if options.expires?
+      @client.setAsync key, value, options.expires
+    else
+      @client.setAsync key, value
 
 if cache?
   module.exports = (url) -> new CacheClient url
