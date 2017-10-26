@@ -29,6 +29,8 @@ matrix:
         - TEST_FILE="test/test_redis.coffee"
       services:
         - redis-server
+    - env:
+        - TEST_FILE="test/test_kesz.coffee"
 
 before_script:
   - rm package-lock.json
