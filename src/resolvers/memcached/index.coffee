@@ -1,8 +1,8 @@
-module.exports = (cache_url) ->
+module.exports = (url) ->
   switch
     when client = require('./memjs')
-      client(cache_url)
+      client(url)
     when client = require('./memcached')
-      client(cache_url)
+      client(url)
     else
       null
