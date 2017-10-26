@@ -4,13 +4,9 @@ kesz = require '../src'
 
 describe 'A Error was throw when', () ->
   it 'protocol is unsupported', () ->
-    fn = () ->
-      cache = kesz 'qaz://'
-      return
+    fn = () -> kesz 'qaz://'
     assert.throws fn
 
   it 'no libs was found', () ->
-    fn = () ->
-      cache = kesz 'memcached://'
-      return
+    fn = () -> kesz 'memcached://'
     assert.throws fn

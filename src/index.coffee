@@ -14,6 +14,8 @@ module.exports = (cache_url=process.env.CACHE_URL) ->
     else
       throw new Error "Unsupported engine #{ cache_url.protocol }"
 
-  unless resolver? then throw new Error "Can't find any library for #{ cache_url.protocol }!"
-
-  resolver cache_url
+  lib = resolver cache_url
+  unless lib?
+    throw new Error "Can't find any library for #{ cache_url.protocol }!"
+  else
+    lib
