@@ -3,10 +3,11 @@ assert = require('chai').assert
 
 kesz = require '../src'
 
-cache = kesz 'redis://'
+cache = kesz()
 
-describe 'A "redis" driver has function', () ->
+describe 'A resolver has function', () ->
   describe '"get" that', () ->
+
     it 'should return Promise', () ->
       val = cache.get 'qaz'
       assert.instanceOf val, Promise

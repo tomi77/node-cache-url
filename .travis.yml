@@ -10,23 +10,23 @@ matrix:
   include:
     - env:
         - CACHE_URL="dummy://"
-        - TEST_FILE="test/test_dummy.coffee"
+        - TEST_FILE="test/test_resolver.coffee"
     - env:
         - CACHE_URL="memcached://localhost:11211"
         - CACHE_LIB="memcached@^2.2.2"
-        - TEST_FILE="test/test_memcached.coffee"
+        - TEST_FILE="test/test_resolver.coffee"
       services:
         - memcached
     - env:
         - CACHE_URL="memcached://localhost:11211"
         - CACHE_LIB="memjs@^1.0.0-rc.1"
-        - TEST_FILE="test/test_memcached.coffee"
+        - TEST_FILE="test/test_resolver.coffee"
       services:
         - memcached
     - env:
         - CACHE_URL="redis://"
         - CACHE_LIB="redis@^2.8.0"
-        - TEST_FILE="test/test_redis.coffee"
+        - TEST_FILE="test/test_resolver.coffee"
       services:
         - redis-server
     - env:
