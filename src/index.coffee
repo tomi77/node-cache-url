@@ -1,6 +1,8 @@
 url = require 'url'
 
 module.exports = (cache_url=process.env.CACHE_URL) ->
+  unless cache_url? then throw new Error "cache_url parameter or CACHE_URL envirnoment variable must be set!"
+
   cache_url = url.parse cache_url
 
   resolver = switch cache_url.protocol
