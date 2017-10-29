@@ -8,6 +8,8 @@ catch error
   cache = null
 
 class CacheClient
+  protocol: 'redis:'
+
   constructor: (url) ->
     @client = cache.createClient url.port, url.hostname
     return

@@ -2,6 +2,8 @@ Promise = require 'bluebird'
 
 
 class CacheClient
+  protocol: 'dummy:'
+
   constructor: () ->
     @client = null
     return

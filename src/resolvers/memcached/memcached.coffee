@@ -7,6 +7,8 @@ catch error
   cache = null
 
 class CacheClient
+  protocol: 'memcached:'
+
   constructor: (url) ->
     @client = new cache cacheHost: "#{ url.hostname }:#{ url.port }"
     return

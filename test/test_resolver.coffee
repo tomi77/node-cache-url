@@ -5,7 +5,7 @@ kesz = require '../src'
 
 cache = kesz()
 
-describe 'A resolver has function', () ->
+describe "A \"#{ cache.protocol }\" resolver has function", () ->
   describe '"get" that', () ->
 
     it 'should return Promise', () ->

@@ -15,6 +15,10 @@ Unified cache access library for Node
 * [Supported libs](#supported-libs)
 * [Usage](#usage)
 * [API](#api)
+  * [protocol](#protocol)
+  * [client](#client)
+  * [set](#setkey-value--options)
+  * [get](#getkey)
 
 ## Installation
 
@@ -79,7 +83,11 @@ cache.set('key', 'qaz123')
 
 Direct access to client library
 
-#### `set(key, value [, options]) -> Promise`
+#### `protocol`
+
+Const value that describe a resolver protocol
+
+#### `set(key, value [, options])`
 
 ___Parameters___
 
@@ -105,7 +113,7 @@ ___Return value___
 
 Set an item in the cache
 
-#### `get(key) -> Promise`
+#### `get(key)`
 
 ___Parameters___
 
